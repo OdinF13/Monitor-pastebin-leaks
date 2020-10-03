@@ -27,7 +27,7 @@ crontab -l | { cat; echo "*/5 * * * * bash MONITOR_pastebin.sh"; } | crontab -
 
 > When something changed after the last run
 
-![When something changed after the last run](https://i.imgur.com/A07gM5T.png)
+![When something changed after the last run](https://i.imgur.com/8c3EIGP.png)
 
 > When script finds something
 
