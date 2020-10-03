@@ -4,7 +4,6 @@
 declare -A REGEXS
 URLS=()
 
-DOWNLOADED=1
 ARCHIVE_DIR=/opt/pastebin
 HASH_FILE=$ARCHIVE_DIR/.hash
 LOG_FILE=$ARCHIVE_DIR/result.log
@@ -67,7 +66,7 @@ if [ -f $HASH_FILE ]; then
 	OLD_HASH=$(cat < $HASH_FILE)
 	if [[ $OLD_HASH == $NEW_HASH ]]; then
 		print "INFO: no difference."
-    	exit 0
+    		exit 0
 	fi
 fi
 
