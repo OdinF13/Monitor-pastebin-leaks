@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # [C] Odin
 
 declare -A REGEXS
@@ -64,20 +63,19 @@ done <<< $(
 )
 
 NEW_HASH=$(printf "%s\n" "${URLS[@]}" | md5sum | awk '{print $1}')
-[ -f $HASH_FILE ] || echo $NEW_HASH > $HASH_FILE
-OLD_HASH=$(cat < $HASH_FILE)
-
-
-if [[ $OLD_HASH == $NEW_HASH ]]; then
-	print "INFO: no difference."
-	exit 0
+if [ -f $HASH_FILE ]; then
+	OLD_HASH=$(cat < $HASH_FILE)
+	if [[ $OLD_HASH == $NEW_HASH ]]; then
+		print "INFO: no difference."
+    	exit 0
+	fi
 fi
 
 echo "WARNING: something changed"
 echo $NEW_HASH > $HASH_FILE
 
-
 echo
+
 # total 50 pages. https://pastebin.com/archive. Run 2 threads
 for ((i=0;i<50;)); do
  	for x in {1..25}; do
@@ -106,6 +104,5 @@ for ((i=0;i<50;)); do
 	wait
 done
 rm /tmp/file*
-
 
 exit 0
