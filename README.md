@@ -17,7 +17,7 @@ bash MONITOR_pastebin.sh
 ```
 _How to add to cron?_
 ```bash
-crontab -l | { cat; echo "*/5 * * * * bash MONITOR_pastebin.sh"; } | crontab -
+crontab -l | { cat; echo "*/5 * * * * bash /root/Desktop/dev/sh/MONITOR_pastebin.sh"; } | crontab -
 ```
 
 ### Screenshots
