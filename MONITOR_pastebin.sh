@@ -1,6 +1,14 @@
 #!/bin/bash
 # [C] Odin
 
+alias pc='proxychains'
+which proxychains &> /dev/null || {
+	echo "You need to install proxychains..."
+	echo "run: sudo apt-get install proxychains -y"
+	exit 1
+}
+
+
 declare -A REGEXS
 URLS=()
 
